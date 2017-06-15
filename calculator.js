@@ -10,61 +10,41 @@
 function calculatorModule(){
   let memory = 0;
   let total = 0;
-  return {
-    load : load,
-    getTotal : getTotal,
-    add : add,
-    subtract : subtract,
-    multiply : multiply,
-    divide : divide,
-    recallMemory : recallMemory,
-    saveMemory : saveMemory,
-    clearMemory : clearMemory,
-  };
+
 
   function load(x){
-    if (typeof x !== "number"){
-      throw new Error('Error');
-    }else{
+    validate(x);
     total = x;
     return total;
   }
-}
+
   function getTotal(){
     return total;
   }
   function add(x){
-    if (typeof x !== "number"){
-      throw new Error('Error');
-    }else{
+    validate(x);
     total = total + x;
     return total;
   }
-}
+
   function subtract(x){
-    if (typeof x !== "number"){
-      throw new Error('Error');
-    }else{
+    validate(x);
     total = total - x;
     return total;
   }
-}
+
   function multiply(x){
-    if (typeof x !== "number"){
-      throw new Error('Error');
-    }else{
+    validate(x);
     total = total * x;
     return total;
   }
-}
+
   function divide(x){
-    if (typeof x !== "number"){
-      throw new Error('Error');
-    }else{
+    validate(x);
     total = total / x;
     return total;
   }
-}
+
   function recallMemory(){
     return memory;
   }
@@ -76,6 +56,22 @@ function calculatorModule(){
     memory = 0;
     return memory;
   }
+  function validate(x){
+    if (typeof x !== "number"){
+      throw new Error("This is not a number!");
+    }
+  }
+    return {
+    load : load,
+    getTotal : getTotal,
+    add : add,
+    subtract : subtract,
+    multiply : multiply,
+    divide : divide,
+    recallMemory : recallMemory,
+    saveMemory : saveMemory,
+    clearMemory : clearMemory,
+  };
 }
 
   /**
